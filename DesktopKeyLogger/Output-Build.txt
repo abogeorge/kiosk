@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: DesktopKeyLogger, Configuration: Release Win32 ------
+1>  DesktopKeyLogger.cpp
+1>  Generating code
+1>  Finished generating code
+1>  DesktopKeyLogger.vcxproj -> D:\Projects\DesktopKeyLogger\Release\DesktopKeyLogger.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
