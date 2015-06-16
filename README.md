@@ -1,2 +1,2 @@
 # kiosk
-A small windows application to allow users to run custom applications in kiosk mode.
+A small windows application to allow users to run in kiosk mode.
