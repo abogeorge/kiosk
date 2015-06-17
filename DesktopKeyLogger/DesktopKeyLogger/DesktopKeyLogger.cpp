@@ -36,10 +36,20 @@ LRESULT CALLBACK keyboardHookProc(int nCode, WPARAM wParam, LPARAM lParam) {
 	DWORD CTRL_key = 0;
 	DWORD ALT_key = 0;
 
-	ifstream in("config.conf", ios::in);
-	char keys; in.get(keys); /// key for desktop switch
-	char keye; in.get(keye); /// key for desktop exit
-	in.close();
+	char keys;
+	char keye;
+
+	RegistryUtilities regUtils;
+	keys = regUtils.getKeySwitch();
+	keye = regUtils.getKeyExit();
+
+	if (keys == NULL || keye == NULL){
+		ifstream in("config.conf", ios::in);
+		in.get(keys); /// key for desktop switch
+		in.get(keye); /// key for desktop exit
+		in.close();
+	}
+
 
 	if ((nCode == HC_ACTION) && ((wParam == WM_SYSKEYDOWN) || (wParam == WM_KEYDOWN)))
 	{
@@ -55,10 +65,10 @@ LRESULT CALLBACK keyboardHookProc(int nCode, WPARAM wParam, LPARAM lParam) {
 			if (GetAsyncKeyState(VK_SHIFT) >= 0) key += 32;
 
 			if (CTRL_key != 0 && ALT_key != 0 && key == keys)
-					sendMessage("SWITCH\0"); /// for CTRL + ALT + the key read from file a SWITCH message is sent
+				sendMessage("SWITCH\0"); /// for CTRL + ALT + the key read from file a SWITCH message is sent
 			if (CTRL_key != 0 && ALT_key != 0 && key == keye)
 				sendMessage("CLOSE\0"); /// for CTRL + ALT + the key read from file an EXIT message is sent
-			
+
 			SHIFT_key = 0;
 			CTRL_key = 0;
 			ALT_key = 0;

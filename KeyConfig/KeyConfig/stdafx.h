@@ -37,6 +37,9 @@
 #include "FileUtils.h"
 #include <iostream>
 #include <fstream>
+#include <windows.h>
+
+#include "RegistryUtilities.h"
 
 using namespace std;
 

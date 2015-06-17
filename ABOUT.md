@@ -36,6 +36,7 @@ Also, the capabilities of the user are limited, so he can't acces any power or u
 1.5 - Sending notifications using key combo
 1.6 - Reading combo configuration from file
 1.7 - Added documentation
+1.8 - Reading configuration from registry and file as back up
 
  --- DesktopTrayIcon ---
 1.0 - Functional
@@ -44,3 +45,4 @@ Also, the capabilities of the user are limited, so he can't acces any power or u
  --- KeyConfig ---
 1.0 - Writing in conf file and exception handling for providing matching keys
 1.1 - Reading default values from conf file
+1.2 - Writing configuration from registry and file as back up

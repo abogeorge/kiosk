@@ -181,7 +181,9 @@ void CKeyConfigDlg::OnBnClickedOk()
 	}
 	else {
 		FileUtils fileU;
+		RegistryUtilities registryU;
 		fileU.writeConfig(letters[sIndex], letters[eIndex]);
+		registryU.writeKeys(sIndex, eIndex);
 		exit(0);
 	}
 
