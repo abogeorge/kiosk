@@ -62,6 +62,8 @@ void KyoskLauncher::startNewKyosk()
 	else
 		LOG(INFO) << "Started the tray icon for the new desktop";
 
+	PROCESS_INFORMATION pInfoNTA = startAdditionalProcess();
+
 	/// disabling all options from ctrl+alt+del menu
 	RegistryUtilities regUtilities;
 	DWORD value = 1;
@@ -144,6 +146,16 @@ void KyoskLauncher::startNewKyosk()
 	else
 		LOG(ERROR) << "Unable to close the key listener for the new desktop";
 
+	/// the process started from the file is closed
+	if (pInfoNTA.hProcess != NULL){
+		if (killProcess(pInfoNTA) == true){
+			LOG(INFO) << "Closed the new explorer process";
+		}
+		else{
+			LOG(ERROR) << "Unable to close the new explorer process";
+		}
+	}
+
 	/// the new process is closed
 	/*if (killProcess(pInfoNT) == true)
 		LOG(INFO) << "Closed the new explorer process";
@@ -185,4 +197,37 @@ bool KyoskLauncher::killProcess(PROCESS_INFORMATION processInfo)
 	CloseHandle(processInfo.hProcess); /// Closes the process opened handle
 	CloseHandle(processInfo.hThread); /// Closes the thread opened handle
 	return result;
+}
+
+
+//// 
+PROCESS_INFORMATION KyoskLauncher::startAdditionalProcess()
+{
+	PROCESS_INFORMATION pInfoNTA; /// process infromation for the new thread
+	ZeroMemory(&pInfoNTA, sizeof(pInfoNTA));
+	
+	char path[100];
+	ifstream in("application.conf", ios::in);
+	in.getline(path, 100);
+	in.close();
+
+	/*ofstream out("application.conf", ios::out);
+	out << "#";
+	out.close();*/
+	
+	if (path != "#"){
+		STARTUPINFO sInfoNTA; /// startupinfo for the new thread
+		ZeroMemory(&sInfoNTA, sizeof(sInfoNTA)); /// this macro fills a block of memory with zeros
+		sInfoNTA.lpDesktop = L"threadDesktop"; /// setting the desktop for the process
+		wchar_t wpath[101];
+		mbstowcs(wpath, path, strlen(path) + 1);
+		LPCWSTR lpath = wpath;
+		CreateProcess(lpath, NULL, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &sInfoNTA, &pInfoNTA); /// starting the process for the key listener of the new desktop
+		if (!pInfoNTA.hProcess)
+			LOG(ERROR) << "Unable to start the new explorer process";
+		else{
+			LOG(INFO) << "Started the new process";
+		}
+	}
+	return pInfoNTA;
 }

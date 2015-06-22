@@ -60,6 +60,7 @@ void CKeyConfigDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_COMBO1, comboKeyS);
 	DDX_Control(pDX, IDC_COMBO2, comboKeyE);
+	DDX_Control(pDX, IDC_EDITBROWSE, editBrwose);
 }
 
 BEGIN_MESSAGE_MAP(CKeyConfigDlg, CDialogEx)
@@ -67,6 +68,7 @@ BEGIN_MESSAGE_MAP(CKeyConfigDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDOK, &CKeyConfigDlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BROWSE, &CKeyConfigDlg::OnBnClickedBrowse)
 END_MESSAGE_MAP()
 
 
@@ -187,4 +189,19 @@ void CKeyConfigDlg::OnBnClickedOk()
 		exit(0);
 	}
 
+}
+
+
+void CKeyConfigDlg::OnBnClickedBrowse()
+{
+	LPCTSTR szFilters = L"Executable files (*.exe)|*.exe";
+	CFileDialog fileDlg(TRUE, L"exe", L"*.exe", OFN_FILEMUSTEXIST | OFN_HIDEREADONLY, szFilters, this, 0, TRUE);
+
+	if (fileDlg.DoModal() == IDOK)
+	{
+		CString m_strPathname = fileDlg.GetPathName();
+		editBrwose.SetWindowText(m_strPathname);
+		FileUtils fileU;
+		fileU.writeApplicationExe(m_strPathname);
+	}
 }

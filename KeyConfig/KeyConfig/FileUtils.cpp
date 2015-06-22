@@ -38,4 +38,34 @@ char FileUtils::readConfigExit()
 void FileUtils::writeConfig(char keySwitch, char keyExit){
 	ofstream out("config.conf", ios::out);
 	out << keySwitch << keyExit;
+	out.close();
+}
+
+/// Function writeApplcationExe, writes to config file the application that we want to open, in the new explorer process.
+/// param path - full path to the executable
+void FileUtils::writeApplicationExe(CString path)
+{
+	ofstream out("application.conf", ios::out);
+	/// conversion from CString to char*
+	const size_t StringSize = 100;
+	size_t CharactersConverted = 0;
+	char pathToChar[StringSize];
+	wcstombs_s(&CharactersConverted, pathToChar,path.GetLength() + 1, path,	_TRUNCATE);
+
+	///// Fxixing the path for Kiosk application
+	//char finalPath[100];
+	//int j = 0;
+	//for (int i = 0; i < strlen(pathToChar);i++)
+	//{
+	//	finalPath[j] = pathToChar[i];
+	//	if (pathToChar[i] == '\\'){
+	//		j++;
+	//		finalPath[j] = '\\';
+	//	}
+	//	j++;
+	//}
+	//finalPath[j] = '\0';
+	//out << finalPath;
+	out << pathToChar;
+	out.close(); 
 }

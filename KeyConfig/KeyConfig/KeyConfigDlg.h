@@ -34,4 +34,6 @@ public:
 	CComboBox comboKeyS;
 	CComboBox comboKeyE;
 	afx_msg void OnBnClickedOk();
+	CEdit editBrwose;
+	afx_msg void OnBnClickedBrowse();
 };

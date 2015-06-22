@@ -26,6 +26,7 @@ Also, the capabilities of the user are limited, so he can't acces any power or u
 2.3 - Disabling basic capabilities using registries
 2.4 - Added Tray Icon to display notifications
 2.5 - Added Documentation
+2.6 - Added functionality for starting a custom application
 
  --- DesktopKeyLogger ---
 1.0 - KeyboardHook testing
@@ -46,3 +47,4 @@ Also, the capabilities of the user are limited, so he can't acces any power or u
 1.0 - Writing in conf file and exception handling for providing matching keys
 1.1 - Reading default values from conf file
 1.2 - Writing configuration from registry and file as back up
+1.3 - Added functionality for starting a custom application
