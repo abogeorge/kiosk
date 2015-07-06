@@ -8,5 +8,6 @@ public:
 	char readConfigExit();
 	void writeConfig(char keySwitch, char keyExit);
 	void writeApplicationExe(CString path);
+	void writeApplicationEmpty();
 };
 

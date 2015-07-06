@@ -63,5 +63,8 @@
     <Image Include="DesktopTrayIcon.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\Taskbar.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -51,21 +51,14 @@ void FileUtils::writeApplicationExe(CString path)
 	size_t CharactersConverted = 0;
 	char pathToChar[StringSize];
 	wcstombs_s(&CharactersConverted, pathToChar,path.GetLength() + 1, path,	_TRUNCATE);
-
-	///// Fxixing the path for Kiosk application
-	//char finalPath[100];
-	//int j = 0;
-	//for (int i = 0; i < strlen(pathToChar);i++)
-	//{
-	//	finalPath[j] = pathToChar[i];
-	//	if (pathToChar[i] == '\\'){
-	//		j++;
-	//		finalPath[j] = '\\';
-	//	}
-	//	j++;
-	//}
-	//finalPath[j] = '\0';
-	//out << finalPath;
 	out << pathToChar;
 	out.close(); 
+}
+
+
+void FileUtils::writeApplicationEmpty()
+{
+	ofstream out("application.conf", ios::out);
+	out << "#";
+	out.close();
 }

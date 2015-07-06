@@ -17,7 +17,7 @@ void NamedPipeUtilities::getPipeMessage()
 {
 	char data[1024];
 	DWORD numRead;
-	bool stiilActive = true;
+	bool stillActive = true;
 
 	while (true)
 	{
@@ -30,6 +30,8 @@ void NamedPipeUtilities::getPipeMessage()
 				SendMessage(hWnd, WM_TRAYMESSAGE, 0, 1);
 			if (data[0] == '2')
 				SendMessage(hWnd, WM_TRAYMESSAGE, 0, 2);
+			if (data[0] == '3')
+				SendMessage(hWnd, WM_TRAYMESSAGE, 0, 3);
 			CloseHandle(pipe);
 		}
 

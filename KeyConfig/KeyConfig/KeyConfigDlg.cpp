@@ -14,6 +14,9 @@
 /// letters char array is used to compare the received data from dialog with actual values
 char letters[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
+/// the path of executable
+CString m_strPathname;
+
 // CAboutDlg dialog used for App About
 
 class CAboutDlg : public CDialogEx
@@ -61,6 +64,8 @@ void CKeyConfigDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COMBO1, comboKeyS);
 	DDX_Control(pDX, IDC_COMBO2, comboKeyE);
 	DDX_Control(pDX, IDC_EDITBROWSE, editBrwose);
+	DDX_Control(pDX, IDC_CHECK1, checkExplorer);
+	DDX_Control(pDX, IDC_BROWSE, buttonBrowse);
 }
 
 BEGIN_MESSAGE_MAP(CKeyConfigDlg, CDialogEx)
@@ -69,6 +74,7 @@ BEGIN_MESSAGE_MAP(CKeyConfigDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDOK, &CKeyConfigDlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BROWSE, &CKeyConfigDlg::OnBnClickedBrowse)
+	ON_BN_CLICKED(IDC_CHECK1, &CKeyConfigDlg::OnBnClickedCheck1)
 END_MESSAGE_MAP()
 
 
@@ -140,6 +146,13 @@ void CKeyConfigDlg::OnPaint()
 			comboKeyE.SetCurSel(i);
 	}
 
+	/// initializing check box
+	checkExplorer.SetCheck(1);
+
+	/// disabling browse button
+	CWnd* pfield = GetDlgItem(IDC_BROWSE);
+	pfield->EnableWindow(FALSE);
+
 	if (IsIconic())
 	{
 		CPaintDC dc(this); // device context for painting
@@ -177,12 +190,26 @@ void CKeyConfigDlg::OnBnClickedOk()
 
 	int sIndex = comboKeyS.GetCurSel();
 	int eIndex = comboKeyE.GetCurSel();
+	int checked = checkExplorer.GetCheck();
+	FileUtils fileU;
+
+	switch (checked){
+	case 0:{
+		fileU.writeApplicationExe(m_strPathname);
+		break;
+	}
+	case 1:{
+		fileU.writeApplicationEmpty();
+		break;
+	}
+	default:
+		break;
+	}
 
 	if (letters[sIndex] == letters[eIndex]){
 		AfxMessageBox(_T("Provided keys cannot match! Please choose other keys."));
 	}
 	else {
-		FileUtils fileU;
 		RegistryUtilities registryU;
 		fileU.writeConfig(letters[sIndex], letters[eIndex]);
 		registryU.writeKeys(sIndex, eIndex);
@@ -199,9 +226,20 @@ void CKeyConfigDlg::OnBnClickedBrowse()
 
 	if (fileDlg.DoModal() == IDOK)
 	{
-		CString m_strPathname = fileDlg.GetPathName();
+		m_strPathname = fileDlg.GetPathName();
 		editBrwose.SetWindowText(m_strPathname);
-		FileUtils fileU;
-		fileU.writeApplicationExe(m_strPathname);
+	}
+}
+
+void CKeyConfigDlg::OnBnClickedCheck1()
+{
+	CWnd* pfield = GetDlgItem(IDC_BROWSE);
+	if (checkExplorer.GetCheck() == 0){
+		editBrwose.SetReadOnly(false);
+		pfield->EnableWindow(TRUE);
+	}
+	else{
+		editBrwose.SetReadOnly(true);
+		pfield->EnableWindow(FALSE);
 	}
 }

@@ -36,4 +36,7 @@ public:
 	afx_msg void OnBnClickedOk();
 	CEdit editBrwose;
 	afx_msg void OnBnClickedBrowse();
+	CButton checkExplorer;
+	afx_msg void OnBnClickedCheck1();
+	CButton buttonBrowse;
 };
