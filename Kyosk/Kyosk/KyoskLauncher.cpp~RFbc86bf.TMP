@@ -15,8 +15,6 @@ KyoskLauncher::~KyoskLauncher()
 // 0: Unitialized	|	1: User requested a desktop change	|	2: User requested closing the application
 DWORD status = 0;
 
-PROCESS_INFORMATION pInfoNTA; /// process infromation for the custom application thread
-
 DWORD WINAPI pipeThread(LPVOID lpParam)
 {
 	char data[1024]; /// char array to store the received data from the pipe
@@ -47,13 +45,12 @@ DWORD WINAPI pipeThread(LPVOID lpParam)
 	return 0;
 }
 
-DWORD WINAPI customApplicationThread(LPVOID lpParam)
+DWORD WINAPI customApplicationThread(PROCESS_INFORMATION processInfo)
 {
 	DWORD exitCode = 0; /// exit code for the custom application
-	GetExitCodeProcess(pInfoNTA.hProcess, &exitCode);
+	GetExitCodeProcess(processInfo.hProcess, &exitCode);
 	while (exitCode == STILL_ACTIVE){
-		Sleep(200);
-		GetExitCodeProcess(pInfoNTA.hProcess, &exitCode);
+		GetExitCodeProcess(processInfo.hProcess, &exitCode);
 	}
 	status = 2;
 	return 0;
@@ -121,6 +118,8 @@ void KyoskLauncher::startNewKyosk()
 
 	/// check if the user asked for a custom application to run
 	LPCWSTR additionalProcess = checkAdditionalProcess();
+	PROCESS_INFORMATION pInfoNTA; /// process infromation for the custom application thread
+	ZeroMemory(&pInfoNTA, sizeof(pInfoNTA));
 
 	if (wcscmp(additionalProcess, L"#") == 0) {
 		STARTUPINFO sInfoNT; /// startupinfo for the explorer thread
@@ -139,7 +138,6 @@ void KyoskLauncher::startNewKyosk()
 	}
 	else 
 	{
-		ZeroMemory(&pInfoNTA, sizeof(pInfoNTA));
 		STARTUPINFO sInfoNTA; /// startupinfo for the custom application thread
 		ZeroMemory(&sInfoNTA, sizeof(sInfoNTA)); /// this macro fills a block of memory with zeros
 		sInfoNTA.lpDesktop = L"threadDesktop"; /// setting the desktop for the process
@@ -154,8 +152,8 @@ void KyoskLauncher::startNewKyosk()
 		}
 
 		HANDLE handleApplicationThread = 0;
-		int dataOfApplicationThread = 1;
-		handleApplicationThread = CreateThread(NULL, 0, customApplicationThread, &dataOfApplicationThread, 0, NULL);
+		//int dataOfPipeThread = 1;
+		handleApplicationThread = CreateThread(NULL, 0, pipeThread, &pInfoNTA, 0, NULL);
 	}
 
 	NamedPipeUtilities pipes;

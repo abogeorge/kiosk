@@ -55,7 +55,7 @@ void FileUtils::writeApplicationExe(CString path)
 	out.close(); 
 }
 
-
+/// Function writeApplcationEmpty writes a # charachter if an empty project was selected 
 void FileUtils::writeApplicationEmpty()
 {
 	ofstream out("application.conf", ios::out);

@@ -176,6 +176,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			startConfig();
 			break;
 		case ID__EXIT:
+			MessageBox(0, L"Kiosk Application - 2015.", L"About", MB_ICONINFORMATION);
+			break;
 		case IDM_EXIT:
 			TrayDeleteIcon(hWnd);
 			DestroyWindow(hWnd);
