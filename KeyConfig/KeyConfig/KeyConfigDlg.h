@@ -39,4 +39,8 @@ public:
 	CButton checkExplorer;
 	afx_msg void OnBnClickedCheck1();
 	CButton buttonBrowse;
+	CButton checkKeepRuning;
+	afx_msg void OnBnClickedCheck2();
+	CButton checkDeactivateSwitch;
+	afx_msg void OnBnClickedCheck3();
 };

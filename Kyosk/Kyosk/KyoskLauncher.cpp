@@ -52,7 +52,7 @@ DWORD WINAPI customApplicationThread(LPVOID lpParam)
 	DWORD exitCode = 0; /// exit code for the custom application
 	GetExitCodeProcess(pInfoNTA.hProcess, &exitCode);
 	while (exitCode == STILL_ACTIVE){
-		Sleep(200);
+		Sleep(20);
 		GetExitCodeProcess(pInfoNTA.hProcess, &exitCode);
 	}
 	status = 2;
@@ -146,11 +146,11 @@ void KyoskLauncher::startNewKyosk()
 		pInfoNTA = startProcess(sInfoNTA, additionalProcess); /// starting the process for the new applcation
 		if (!pInfoNTA.hProcess)
 		{
-			LOG(ERROR) << "Unable to start the new explorer process";
+			LOG(ERROR) << "Unable to start the new additional process";
 		}
 		else
 		{
-			LOG(INFO) << "Started the new explorer process";
+			LOG(INFO) << "Started the additional process";
 		}
 
 		HANDLE handleApplicationThread = 0;

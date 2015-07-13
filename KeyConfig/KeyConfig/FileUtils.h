@@ -6,8 +6,11 @@ public:
 	~FileUtils();
 	char readConfigSwitch();
 	char readConfigExit();
-	void writeConfig(char keySwitch, char keyExit);
+	char readConfigKeepApp();
+	char readConfigDeactivateSwitch();
+	void writeConfig(char keySwitch, char keyExit, char keepApps, char deactivateSwitch);
 	void writeApplicationExe(CString path);
 	void writeApplicationEmpty();
+	char* readAppConfig();
 };
 

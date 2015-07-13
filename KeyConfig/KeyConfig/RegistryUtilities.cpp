@@ -13,13 +13,13 @@ RegistryUtilities::~RegistryUtilities()
 
 ///
 /// writeKeys function calls writeSingleKey with diferent params in order to write the keys in the registry
-/// param value: contains the data to be stored with the specified value name
-///
-bool RegistryUtilities::writeKeys(DWORD keySwitch, DWORD keyExit)
+/// param keySwitch - key used for switching
+/// param keyExit - key used for exiting
+/// param keepApp - records application settings for application killing
+/// param deactivateSwitch - records application setting for desktop switching option
+bool RegistryUtilities::writeKeys(DWORD keySwitch, DWORD keyExit, DWORD keepApps, DWORD deactivateSwitch)
 {
 	bool resultOk = true;
-	/*DWORD keyS = atoi(keySwitch);
-	DWORD keyE;*/
 
 	/// Writing the switch key
 	HKEY regKey = HKEY_CURRENT_USER;
@@ -31,6 +31,16 @@ bool RegistryUtilities::writeKeys(DWORD keySwitch, DWORD keyExit)
 	/// Writing the exit key
 	valueName = L"ExitKey";
 	if (writeSingleKey(regKey, subKey, keyExit, valueName) == false)
+		resultOk = false;
+
+	/// Writing the application settings for processes killing
+	valueName = L"KeepApps";
+	if (writeSingleKey(regKey, subKey, keepApps, valueName) == false)
+		resultOk = false;
+
+	/// Writing the application settings for desktop switching deactivation
+	valueName = L"DeactivateSwitch";
+	if (writeSingleKey(regKey, subKey, deactivateSwitch, valueName) == false)
 		resultOk = false;
 
 	return resultOk;

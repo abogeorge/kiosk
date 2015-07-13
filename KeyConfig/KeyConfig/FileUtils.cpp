@@ -32,12 +32,40 @@ char FileUtils::readConfigExit()
 	return keyExit;
 }
 
+/// Function readConfigKeepApp, returns the stored option for desktop opened applications
+/// return char
+char FileUtils::readConfigKeepApp()
+{
+	ifstream in("config.conf", ios::in);
+	char keySwitch; in.get(keySwitch);
+	char keyExit; in.get(keyExit);
+	char keepApp; in.get(keepApp);
+	in.close();
+	return keepApp;
+}
+
+/// Function readConfigDeactivateSwitch, returns the stored option for desktop swtiching
+/// return char
+char FileUtils::readConfigDeactivateSwitch()
+{
+	ifstream in("config.conf", ios::in);
+	char keySwitch; in.get(keySwitch);
+	char keyExit; in.get(keyExit);
+	char keepApp; in.get(keepApp);
+	char deactivateSwitch; in.get(deactivateSwitch);
+	in.close();
+	return deactivateSwitch;
+}
+
+
 /// Function writeConfig, writes to config file the keys used for desktop switching
 /// param keySwitch - key used for switching
 /// param keyExit - key used for exiting
-void FileUtils::writeConfig(char keySwitch, char keyExit){
+/// param keepApp - records application settings for application killing
+/// param deactivateSwitch - records application setting for desktop switching option
+void FileUtils::writeConfig(char keySwitch, char keyExit, char keepApp, char deactivateSwitch){
 	ofstream out("config.conf", ios::out);
-	out << keySwitch << keyExit;
+	out << keySwitch << keyExit << keepApp << deactivateSwitch;
 	out.close();
 }
 
@@ -61,4 +89,13 @@ void FileUtils::writeApplicationEmpty()
 	ofstream out("application.conf", ios::out);
 	out << "#";
 	out.close();
+}
+
+
+char* FileUtils::readAppConfig()
+{
+	ifstream in("application.conf", ios::in);
+	char cApp[100];
+	in.getline(cApp, 100);
+	return cApp;
 }

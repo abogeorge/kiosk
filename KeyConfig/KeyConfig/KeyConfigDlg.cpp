@@ -14,6 +14,9 @@
 /// letters char array is used to compare the received data from dialog with actual values
 char letters[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
+/// keepAppsArray char array is used to compare the received data from dialog with actual values
+char keepAppsArray[2] = { '0', '1'};
+
 /// the path of executable
 CString m_strPathname;
 
@@ -66,6 +69,8 @@ void CKeyConfigDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDITBROWSE, editBrwose);
 	DDX_Control(pDX, IDC_CHECK1, checkExplorer);
 	DDX_Control(pDX, IDC_BROWSE, buttonBrowse);
+	DDX_Control(pDX, IDC_CHECK2, checkKeepRuning);
+	DDX_Control(pDX, IDC_CHECK3, checkDeactivateSwitch);
 }
 
 BEGIN_MESSAGE_MAP(CKeyConfigDlg, CDialogEx)
@@ -75,6 +80,8 @@ BEGIN_MESSAGE_MAP(CKeyConfigDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CKeyConfigDlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BROWSE, &CKeyConfigDlg::OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECK1, &CKeyConfigDlg::OnBnClickedCheck1)
+	ON_BN_CLICKED(IDC_CHECK2, &CKeyConfigDlg::OnBnClickedCheck2)
+	ON_BN_CLICKED(IDC_CHECK3, &CKeyConfigDlg::OnBnClickedCheck3)
 END_MESSAGE_MAP()
 
 
@@ -138,6 +145,26 @@ void CKeyConfigDlg::OnPaint()
 	FileUtils file;
 	char keySwitch = file.readConfigSwitch();
 	char keyExit = file.readConfigExit();
+	char keepApp = file.readConfigKeepApp();
+	char deactivateSwitch = file.readConfigDeactivateSwitch();
+
+	if (keepApp == '1')
+	{
+		checkKeepRuning.SetCheck(1);
+	}
+	else
+	{
+		checkKeepRuning.SetCheck(0);
+	}
+
+	if (deactivateSwitch == '1')
+	{
+		checkDeactivateSwitch.SetCheck(1);
+	}
+	else
+	{
+		checkDeactivateSwitch.SetCheck(0);
+	}
 
 	for (int i = 0; i < 26; i++){
 		if (letters[i] == keySwitch)
@@ -146,12 +173,32 @@ void CKeyConfigDlg::OnPaint()
 			comboKeyE.SetCurSel(i);
 	}
 
-	/// initializing check box
-	checkExplorer.SetCheck(1);
+	ifstream in("application.conf", ios::in);
+	char cApp[100];
+	in.getline(cApp, 100);
 
-	/// disabling browse button
-	CWnd* pfield = GetDlgItem(IDC_BROWSE);
-	pfield->EnableWindow(FALSE);
+	//char* cApp = file.readAppConfig();
+	size_t len = mbstowcs(nullptr, &cApp[0], 0);
+	wstring wstr(len, 0);
+	mbstowcs(&wstr[0], &cApp[0], wstr.size());
+	const wchar_t * cs = wstr.c_str();
+	LPCTSTR appLoaded = cs;
+
+	if (wcscmp(appLoaded, L"#") == 0)
+	{
+		/// initializing check box
+		checkExplorer.SetCheck(1);
+
+		/// disabling browse button
+		CWnd* pfield = GetDlgItem(IDC_BROWSE);
+		pfield->EnableWindow(FALSE);
+	}
+	else
+	{
+		editBrwose.SetReadOnly(false);
+		editBrwose.SetWindowTextW(appLoaded);
+		m_strPathname = appLoaded;
+	}
 
 	if (IsIconic())
 	{
@@ -191,10 +238,16 @@ void CKeyConfigDlg::OnBnClickedOk()
 	int sIndex = comboKeyS.GetCurSel();
 	int eIndex = comboKeyE.GetCurSel();
 	int checked = checkExplorer.GetCheck();
-	FileUtils fileU;
+	int checkedKeppApp = checkKeepRuning.GetCheck();
+	int checkedDeactivateSwitch = checkDeactivateSwitch.GetCheck();
 
-	switch (checked){
-	case 0:{
+	FileUtils fileU;
+	RegistryUtilities registryU;
+
+	switch (checked)
+	{
+	case 0:
+	{
 		fileU.writeApplicationExe(m_strPathname);
 		break;
 	}
@@ -210,9 +263,8 @@ void CKeyConfigDlg::OnBnClickedOk()
 		AfxMessageBox(_T("Provided keys cannot match! Please choose other keys."));
 	}
 	else {
-		RegistryUtilities registryU;
-		fileU.writeConfig(letters[sIndex], letters[eIndex]);
-		registryU.writeKeys(sIndex, eIndex);
+		fileU.writeConfig(letters[sIndex], letters[eIndex], keepAppsArray[checkedKeppApp], keepAppsArray[checkedDeactivateSwitch]);
+		registryU.writeKeys(sIndex, eIndex, checkedKeppApp, checkedDeactivateSwitch);
 		exit(0);
 	}
 
@@ -241,5 +293,41 @@ void CKeyConfigDlg::OnBnClickedCheck1()
 	else{
 		editBrwose.SetReadOnly(true);
 		pfield->EnableWindow(FALSE);
+	}
+}
+
+
+void CKeyConfigDlg::OnBnClickedCheck2()
+{
+	int checkVal = checkKeepRuning.GetCheck();
+	switch (checkVal){
+	case 0:{
+		AfxMessageBox(_T("All processes opened in the new Desktop will be closed when the Kiosk application exits."));
+		break;
+	}
+	case 1:{
+		AfxMessageBox(_T("All processes opened in the new Desktop will be available at a new Kiosk application run."));
+		break;
+	}
+	default:
+		break;
+	}
+}
+
+
+void CKeyConfigDlg::OnBnClickedCheck3()
+{
+	int checkVal = checkDeactivateSwitch.GetCheck();
+	switch (checkVal){
+	case 0:{
+		AfxMessageBox(_T("When the Kiosk application will start, the user will have the capability to switch back and forth between Desktops."));
+		break;
+	}
+	case 1:{
+		AfxMessageBox(_T("When the Kiosk application will start, the user will not be able to switch back and forth between Desktops. When the exit combo will be detected, the user will be returned to the original Desktop."));
+		break;
+	}
+	default:
+		break;
 	}
 }
