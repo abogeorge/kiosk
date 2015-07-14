@@ -119,6 +119,9 @@ void KyoskLauncher::startNewKyosk()
 	else
 		LOG(ERROR) << "Unable to disable options from CTRL+ALT+DEL menu";
 
+	/// check if the user asked for a Desktop lock
+	bool lockStatus = regUtilities.lockStatus();
+
 	/// check if the user asked for a custom application to run
 	LPCWSTR additionalProcess = checkAdditionalProcess();
 
@@ -169,7 +172,7 @@ void KyoskLauncher::startNewKyosk()
 	{
 		if (status == 1)
 		{
-			if (!activeDesktop) /// if the user is in the new thread desktop
+			if (activeDesktop == false && lockStatus == false) /// if the user is in the new thread desktop
 			{ 
 				SwitchDesktop(currentDesktop);
 				activeDesktop = true;
