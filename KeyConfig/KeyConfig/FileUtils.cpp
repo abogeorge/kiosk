@@ -63,7 +63,8 @@ char FileUtils::readConfigDeactivateSwitch()
 /// param keyExit - key used for exiting
 /// param keepApp - records application settings for application killing
 /// param deactivateSwitch - records application setting for desktop switching option
-void FileUtils::writeConfig(char keySwitch, char keyExit, char keepApp, char deactivateSwitch){
+void FileUtils::writeConfig(char keySwitch, char keyExit, char keepApp, char deactivateSwitch)
+{
 	ofstream out("config.conf", ios::out);
 	out << keySwitch << keyExit << keepApp << deactivateSwitch;
 	out.close();

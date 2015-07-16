@@ -53,20 +53,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	KyoskLauncher kLauncher;
 	kLauncher.startNewKyosk();
 
-	//TrayDeleteIcon(hWnd);
 	exit(0);
-
-	//SendMessage(hWnd, WM_TRAYMESSAGE, 0, 2);
-	
-	//// Main message loop:
-	//while (GetMessage(&msg, NULL, 0, 0))
-	//{
-	//	if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-	//	{
-	//		TranslateMessage(&msg);
-	//		DispatchMessage(&msg);
-	//	}
-	//}
 
 	return (int)msg.wParam;
 }
@@ -123,11 +110,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-  /* TrayDrawIcon(hWnd);
-   LPCTSTR contentBalloon = L"Application started! See KeyConfig.exe for available key combos. ";
-   LPCTSTR titleBalloon = L"Application Started";
-   ShowBalloon(contentBalloon, titleBalloon, 0, 20);*/
-
    ShowWindow(SW_HIDE, nCmdShow);
    UpdateWindow(hWnd);
 
@@ -181,21 +163,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);
 		exit(0);
 		break;
-	/*case WM_TRAYMESSAGE:
-		switch (lParam) {
-		case 1:
-			contentBalloon = L"Switched to the First Desktop!";
-			ShowBalloon(contentBalloon, titleBalloon, 0, 20);
-			break;
-		case 2:
-			TrayDeleteIcon(hWnd);
-			exit(0);
-			PostQuitMessage(0);
-			break;
-		default:
-			return DefWindowProc(hWnd, message, wParam, lParam);
-		}
-		break;*/
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}

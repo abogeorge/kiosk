@@ -6,7 +6,8 @@
 NOTIFYICONDATA nid;
 
 /// initialize and displays the notification icon
-void TrayDrawIcon(HWND hWnd) {
+void TrayDrawIcon(HWND hWnd) 
+{
 	nid.cbSize = sizeof(NOTIFYICONDATA);
 	nid.hWnd = hWnd;
 	nid.uID = IDI_ICON1;
@@ -19,7 +20,8 @@ void TrayDrawIcon(HWND hWnd) {
 }
 
 /// removes the tray icon from notification area
-void TrayDeleteIcon(HWND hWnd) {
+void TrayDeleteIcon(HWND hWnd) 
+{
 	NOTIFYICONDATA nid;
 	nid.cbSize = sizeof(NOTIFYICONDATA);
 	nid.hWnd = hWnd;
@@ -33,9 +35,13 @@ void ShowBalloon(LPCTSTR szText, LPCTSTR szTitle, DWORD dwIcon, UINT uTimeout)
 	nid.uFlags = NIF_INFO;
 	wcsncpy_s(nid.szInfo, szText, 256);
 	if (szTitle)
+	{
 		wcsncpy_s(nid.szInfoTitle, szTitle, 64);
+	}
 	else
+	{
 		nid.szInfoTitle[0] = _T('\0');
+	}
 	nid.dwInfoFlags = dwIcon;
 	nid.uTimeout = uTimeout * 1000;
 

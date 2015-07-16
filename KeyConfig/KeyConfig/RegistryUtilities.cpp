@@ -26,22 +26,30 @@ bool RegistryUtilities::writeKeys(DWORD keySwitch, DWORD keyExit, DWORD keepApps
 	LPCWSTR subKey = L"Software\\Kiosk";
 	LPCWSTR valueName = L"SwitchKey";
 	if (writeSingleKey(regKey, subKey, keySwitch, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Writing the exit key
 	valueName = L"ExitKey";
 	if (writeSingleKey(regKey, subKey, keyExit, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Writing the application settings for processes killing
 	valueName = L"KeepApps";
 	if (writeSingleKey(regKey, subKey, keepApps, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Writing the application settings for desktop switching deactivation
 	valueName = L"DeactivateSwitch";
 	if (writeSingleKey(regKey, subKey, deactivateSwitch, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	return resultOk;
 }
@@ -59,9 +67,11 @@ bool RegistryUtilities::writeSingleKey(HKEY regKey, LPCWSTR subKey, DWORD value,
 	bool resultOk = false;
 	HKEY hkey;
 	DWORD dwDisposition;
-	if (RegCreateKeyEx(regKey, subKey, 0, NULL, 0, KEY_WRITE, NULL, &hkey, &dwDisposition) == ERROR_SUCCESS) {
+	if (RegCreateKeyEx(regKey, subKey, 0, NULL, 0, KEY_WRITE, NULL, &hkey, &dwDisposition) == ERROR_SUCCESS) 
+	{
 		/// creating or opening the specified registry key
-		if (RegSetValueEx(hkey, valueName, 0, REG_DWORD, (PBYTE)&value, sizeof(DWORD)) == ERROR_SUCCESS){
+		if (RegSetValueEx(hkey, valueName, 0, REG_DWORD, (PBYTE)&value, sizeof(DWORD)) == ERROR_SUCCESS)
+		{
 			/// stores data in the value field of the open registry key
 			resultOk = true;
 		}

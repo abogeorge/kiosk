@@ -6,7 +6,8 @@
 NOTIFYICONDATA nid;
 
 /// initialize and displays the tray icon
-void TrayDrawIcon(HWND hWnd) {
+void TrayDrawIcon(HWND hWnd) 
+{
 	nid.cbSize = sizeof(NOTIFYICONDATA);
 	nid.hWnd = hWnd;
 	nid.uID = IDI_ICON1;
@@ -19,7 +20,8 @@ void TrayDrawIcon(HWND hWnd) {
 }
 
 /// removes the tray icon
-void TrayDeleteIcon(HWND hWnd) {
+void TrayDeleteIcon(HWND hWnd) 
+{
 	NOTIFYICONDATA nid;
 	nid.cbSize = sizeof(NOTIFYICONDATA);
 	nid.hWnd = hWnd;
@@ -49,7 +51,8 @@ void ShowBalloon(LPCTSTR szText, LPCTSTR szTitle, DWORD dwIcon, UINT uTimeout)
 //  PURPOSE:  Load tray specific popup menu
 //
 //
-void TrayLoadPopupMenu(HWND hWnd) {
+void TrayLoadPopupMenu(HWND hWnd) 
+{
 	POINT cursor;
 	HMENU hMenu;
 	GetCursorPos(&cursor);

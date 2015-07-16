@@ -30,7 +30,8 @@ DWORD WINAPI pipeThread(LPVOID lpParam)
 		ConnectNamedPipe(pipe, NULL);
 		ReadFile(pipe, data, 1024, &numRead, NULL); /// reading the content of the named pipe
 
-		if (numRead > 0){
+		if (numRead > 0)
+		{
 			if (data[0] == 'S')  /// if the received data from pipe is a switch message
 			{
 				status = 1;
@@ -51,7 +52,8 @@ DWORD WINAPI customApplicationThread(LPVOID lpParam)
 {
 	DWORD exitCode = 0; /// exit code for the custom application
 	GetExitCodeProcess(pInfoNTA.hProcess, &exitCode);
-	while (exitCode == STILL_ACTIVE){
+	while (exitCode == STILL_ACTIVE)
+	{
 		Sleep(20);
 		GetExitCodeProcess(pInfoNTA.hProcess, &exitCode);
 	}
@@ -77,9 +79,13 @@ void KyoskLauncher::startNewKyosk()
 	ZeroMemory(&sInfoKLOD, sizeof(sInfoKLOD));  /// this macro fills a block of memory with zeros
 	pInfoKLOD = startProcess(sInfoKLOD, L"DesktopKeyLogger.exe"); /// starting the process for the key listener of the original desktop
 	if (!pInfoKLOD.hProcess)
+	{
 		LOG(ERROR) << "Unable to start the key listener for the current desktop";
+	}
 	else
+	{
 		LOG(INFO) << "Started the key listener for the current desktop";
+	}
 
 	STARTUPINFO sInfoKLTD; /// startupinfo for the key listener of the new desktop
 	PROCESS_INFORMATION pInfoKLTD; /// process infromation for the key listener of the new desktop
@@ -87,9 +93,13 @@ void KyoskLauncher::startNewKyosk()
 	sInfoKLTD.lpDesktop = L"threadDesktop"; /// setting the desktop for the process
 	pInfoKLTD = startProcess(sInfoKLTD, L"DesktopKeyLogger.exe"); /// starting the process for the key listener of the new desktop
 	if (!pInfoKLTD.hProcess)
+	{
 		LOG(ERROR) << "Unable to start the key listener for the new desktop";
+	}
 	else
+	{
 		LOG(INFO) << "Started the key listener for the new desktop";
+	}
 
 	STARTUPINFO sInfoTITD;  /// startupinfo for the DesktopTrayIcon
 	PROCESS_INFORMATION pInfoTITD; /// process infromation for the DesktopTrayIcon
@@ -97,9 +107,13 @@ void KyoskLauncher::startNewKyosk()
 	sInfoTITD.lpDesktop = L"threadDesktop"; /// setting the desktop for the process
 	pInfoTITD = startProcess(sInfoTITD, L"DesktopTrayIcon.exe"); /// starting the process for the DesktopTrayIcon
 	if (!pInfoTITD.hProcess)
+	{
 		LOG(ERROR) << "Unable to start the tray icon for the new desktop";
+	}
 	else
+	{
 		LOG(INFO) << "Started the tray icon for the new desktop";
+	}
 
 	STARTUPINFO sInfoTI;  /// startupinfo for the DesktopTrayIcon
 	PROCESS_INFORMATION pInfoTI; /// process infromation for the DesktopTrayIcon
@@ -107,17 +121,25 @@ void KyoskLauncher::startNewKyosk()
 	//sInfoTITD.lpDesktop = L"threadDesktop"; /// setting the desktop for the process
 	pInfoTI = startProcess(sInfoTI, L"DesktopTrayIcon.exe"); /// starting the process for the DesktopTrayIcon
 	if (!pInfoTI.hProcess)
+	{
 		LOG(ERROR) << "Unable to start the tray icon for the new desktop";
+	}
 	else
+	{
 		LOG(INFO) << "Started the tray icon for the new desktop";
+	}
 
 	/// Disabling all options from ctrl+alt+del menu
 	RegistryUtilities regUtilities;
 	DWORD value = 1;
-	if (regUtilities.changeAllFeatures(value) == true /*regUtilities.disableAllFeatures(value) == true*/)
+	if (regUtilities.changeAllFeatures(value) == true)
+	{
 		LOG(INFO) << "Disabled options from CTRL+ALT+DEL menu";
+	}
 	else
+	{
 		LOG(ERROR) << "Unable to disable options from CTRL+ALT+DEL menu";
+	}
 
 	/// check if the user asked for a Desktop lock
 	bool lockStatus = regUtilities.lockStatus();
@@ -132,7 +154,8 @@ void KyoskLauncher::startNewKyosk()
 	/// check if the user asked for a custom application to run
 	LPCWSTR additionalProcess = checkAdditionalProcess();
 
-	if (wcscmp(additionalProcess, L"#") == 0) {
+	if (wcscmp(additionalProcess, L"#") == 0) 
+	{
 		STARTUPINFO sInfoNT; /// startupinfo for the explorer thread
 		PROCESS_INFORMATION pInfoNT; /// process infromation for the explorer thread
 		ZeroMemory(&sInfoNT, sizeof(sInfoNT)); /// this macro fills a block of memory with zeros
@@ -209,22 +232,34 @@ void KyoskLauncher::startNewKyosk()
 
 	/// enabling all options from ctrl+alt+del menu
 	value = 0;
-	if (regUtilities.changeAllFeatures(value) == true /*regUtilities.enableAllFeatures(value) == true*/)
+	if (regUtilities.changeAllFeatures(value) == true)
+	{
 		LOG(INFO) << "Enabled options from CTRL+ALT+DEL menu";
+	}
 	else
+	{
 		LOG(ERROR) << "Unable to enable options from CTRL+ALT+DEL menu";
+	}
 
 	/// the key listener for the current desktop is closed
 	if (killProcess(pInfoKLOD) == true)
+	{
 		LOG(INFO) << "Closed the key listener for the current desktop";
+	}
 	else
+	{
 		LOG(ERROR) << "Unable to close the key listener for the current desktop";
+	}
 
 	/// the key listener for the new desktop is closed
 	if (killProcess(pInfoKLTD) == true)
+	{
 		LOG(INFO) << "Closed the key listener for the new desktop";
+	}
 	else
+	{
 		LOG(ERROR) << "Unable to close the key listener for the new desktop";
+	}
 
 	/// the new explorer is closed
 	/*if (killProcess(pInfoNT) == true)
@@ -234,15 +269,23 @@ void KyoskLauncher::startNewKyosk()
 
 	/// the tray icon is closed
 	if (killProcess(pInfoTITD) == true)
+	{
 		LOG(INFO) << "Closed the tray icon for the new desktop";
+	}
 	else
+	{
 		LOG(ERROR) << "Unable to close the tray icon for the new desktop";
+	}
 
 	/// the tray icon is closed
 	if (killProcess(pInfoTI) == true)
-		LOG(INFO) << "Closed the tray icon for the new desktop";
+	{
+		LOG(INFO) << "Closed the tray icon for the current desktop";
+	}
 	else
-		LOG(ERROR) << "Unable to close the tray icon for the new desktop";
+	{
+		LOG(ERROR) << "Unable to close the tray icon for the current desktop";
+	}
 
 	if (keppAppsStatus == false)
 	{
@@ -269,8 +312,10 @@ PROCESS_INFORMATION KyoskLauncher::startProcess(STARTUPINFO startUpInfo, LPCTSTR
 	ZeroMemory(&processInformation, sizeof(processInformation)); /// this macro fills a block of memory with zeros
 
 	if (!CreateProcess(lpApplicationName, NULL, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &startUpInfo, &processInformation))
+	{
 		MessageBox(0, L"Unable to start the process!\nThe path is broken!", L"Path Error!", MB_ICONERROR);
-	/// Creates a new process and its primary thread. The new process runs in the security context of the calling process.
+	    /// Creates a new process and its primary thread. The new process runs in the security context of the calling process.
+	}
 
 	return processInformation;
 }
@@ -343,7 +388,9 @@ DWORD KyoskLauncher::listProcessThreads(DWORD dwOwnerPID)
 	/// Snapshot of all running threads  
 	hThreadSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
 	if (hThreadSnap == INVALID_HANDLE_VALUE)
+	{
 		return(FALSE);
+	}
 
 	/// Fill in the size of the structure before using it. 
 	te32.dwSize = sizeof(THREADENTRY32);
@@ -377,7 +424,9 @@ BOOL KyoskLauncher::terminateProcessHandle(DWORD dwProcessId)
 	/// Get a handle on the process with the specified PID
 	HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, dwProcessId);
 	if (hProcess == NULL)
+	{
 		return FALSE; /// If the PID is invalid the handle will be invalid
+	}
 
 	UINT uExitCode = 0;
 	BOOL result = TerminateProcess(hProcess, uExitCode); /// Closing the process

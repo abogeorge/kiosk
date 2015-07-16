@@ -23,41 +23,54 @@ bool RegistryUtilities::changeAllFeatures(DWORD value)
 	LPCWSTR subKey = L"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
 	LPCWSTR valueName = L"DisableTaskMgr";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Modifying Change Password
 	valueName = L"DisableChangePassword";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Modifying Lock
 	valueName = L"DisableLockWorkstation";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Modifying Shut Down
 	subKey = L"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
 	valueName = L"NoClose";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Modifying Logoff
 	valueName = L"NoLogOff";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
-
+	}
 
 	/// Modifying StartMenuLogoff
 	valueName = L"StartMenuLogOff";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	/// Modifying User Switching
 	regKey = HKEY_LOCAL_MACHINE;
 	subKey = L"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
 	valueName = L"HideFastUserSwitching";
 	if (changeSingleFeature(regKey, subKey, value, valueName) == false)
+	{
 		resultOk = false;
+	}
 
 	return resultOk;
 }
@@ -110,9 +123,12 @@ bool RegistryUtilities::lockStatus()
 
 		size_t firstNull = value.find_first_of(L'\0');
 		if (firstNull != string::npos)
+		{
 			value.resize(firstNull);
+		}
 
-		if (value[0] == '\x1'){
+		if (value[0] == '\x1')
+		{
 			return true;
 		}
 
@@ -144,9 +160,12 @@ bool RegistryUtilities::keepAppsStatus()
 
 		size_t firstNull = value.find_first_of(L'\0');
 		if (firstNull != string::npos)
+		{
 			value.resize(firstNull);
+		}
 
-		if (value[0] == '\x1'){
+		if (value[0] == '\x1')
+		{
 			return true;
 		}
 

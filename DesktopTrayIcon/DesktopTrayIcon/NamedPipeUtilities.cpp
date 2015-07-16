@@ -25,13 +25,20 @@ void NamedPipeUtilities::getPipeMessage()
 		ConnectNamedPipe(pipe, NULL);
 		ReadFile(pipe, data, 1024, &numRead, NULL);
 
-		if (numRead > 0){
+		if (numRead > 0)
+		{
 			if (data[0] == '1')
+			{
 				SendMessage(hWnd, WM_TRAYMESSAGE, 0, 1);
+			}
 			if (data[0] == '2')
+			{
 				SendMessage(hWnd, WM_TRAYMESSAGE, 0, 2);
+			}
 			if (data[0] == '3')
+			{
 				SendMessage(hWnd, WM_TRAYMESSAGE, 0, 3);
+			}
 			CloseHandle(pipe);
 		}
 

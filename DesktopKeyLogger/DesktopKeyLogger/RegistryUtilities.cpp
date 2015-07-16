@@ -35,7 +35,9 @@ char RegistryUtilities::getKeySwitch()
 
 		size_t firstNull = value.find_first_of(L'\0');
 		if (firstNull != string::npos)
+		{
 			value.resize(firstNull);
+		}
 
 		return letters[value[0]];
 	}
@@ -65,7 +67,9 @@ char RegistryUtilities::getKeyExit()
 
 		size_t firstNull = value.find_first_of(L'\0');
 		if (firstNull != string::npos)
+		{
 			value.resize(firstNull);
+		}
 
 		return letters[value[0]];
 	}
