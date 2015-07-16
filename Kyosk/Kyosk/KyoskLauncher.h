@@ -9,8 +9,9 @@ private:
 	PROCESS_INFORMATION startProcess(STARTUPINFO startUpInfo, LPCTSTR lpApplicationName);
 	bool killProcess(PROCESS_INFORMATION processInfo);
 	LPCWSTR checkAdditionalProcess();
+	void sweepProcesses(HDESK desktopHandle);
+	DWORD listProcessThreads(DWORD dwOwnerPID);
+	BOOL terminateProcessHandle(DWORD dwProcessId);
 };
-
-//extern  HWND hWnd;
 
 #define WM_TRAYMESSAGE (WM_USER + 1)

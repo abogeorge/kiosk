@@ -25,6 +25,8 @@
 #include <shellapi.h>
 #include <fstream>
 #include <iostream>
+#include <tlhelp32.h>
+#include <psapi.h>
 using namespace std;
 
 #include "KyoskLauncher.h"

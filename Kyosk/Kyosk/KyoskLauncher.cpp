@@ -121,6 +121,13 @@ void KyoskLauncher::startNewKyosk()
 
 	/// check if the user asked for a Desktop lock
 	bool lockStatus = regUtilities.lockStatus();
+	if (lockStatus == true)
+	{
+		LOG(INFO) << "User requested a Desktop Lock";
+	}
+
+	/// check if the user asked for keeping all opened apps
+	bool keppAppsStatus = regUtilities.keepAppsStatus();
 
 	/// check if the user asked for a custom application to run
 	LPCWSTR additionalProcess = checkAdditionalProcess();
@@ -142,6 +149,7 @@ void KyoskLauncher::startNewKyosk()
 	}
 	else 
 	{
+		LOG(INFO) << "User requested a custom process to be started";
 		ZeroMemory(&pInfoNTA, sizeof(pInfoNTA));
 		STARTUPINFO sInfoNTA; /// startupinfo for the custom application thread
 		ZeroMemory(&sInfoNTA, sizeof(sInfoNTA)); /// this macro fills a block of memory with zeros
@@ -206,10 +214,6 @@ void KyoskLauncher::startNewKyosk()
 	else
 		LOG(ERROR) << "Unable to enable options from CTRL+ALT+DEL menu";
 
-	CloseDesktop(threadDesktop);
-	SwitchDesktop(currentDesktop); /// the new destkop is closed and is changed to the original one
-	LOG(INFO) << "Closed the new thread desktop and returned to the original one";
-
 	/// the key listener for the current desktop is closed
 	if (killProcess(pInfoKLOD) == true)
 		LOG(INFO) << "Closed the key listener for the current desktop";
@@ -240,6 +244,17 @@ void KyoskLauncher::startNewKyosk()
 	else
 		LOG(ERROR) << "Unable to close the tray icon for the new desktop";
 
+	if (keppAppsStatus == false)
+	{
+		LOG(INFO) << "User requested all applications to be removed";
+		sweepProcesses(threadDesktop);
+
+	}
+
+	CloseDesktop(threadDesktop);
+	SwitchDesktop(currentDesktop); /// the new destkop is closed and is changed to the original one
+	LOG(INFO) << "Closed the new thread desktop and returned to the original one";
+
 	LOG(INFO) << "*** LOG CLOSED ***\n";
 
 }
@@ -260,7 +275,7 @@ PROCESS_INFORMATION KyoskLauncher::startProcess(STARTUPINFO startUpInfo, LPCTSTR
 	return processInformation;
 }
 
-/// function killProcess terminates the specified process
+/// function killProcess terminates a process based on the PROCESS_INFORMATION
 /// param processInfo: structure that contains information about a process and its primary thread
 bool KyoskLauncher::killProcess(PROCESS_INFORMATION processInfo)
 {
@@ -281,4 +296,91 @@ LPCWSTR KyoskLauncher::checkAdditionalProcess()
 	mbstowcs(wpath, path, strlen(path) + 1);
 	LPCWSTR lpath = wpath;
 	return lpath;
+}
+
+/// function sweepProcesses enumerates all processes and compares the thread id
+/// received from ListProcesses function with the desktop handle and if the process
+/// is runing under the specified desktop TerminateProcessHandle is called
+/// param desktopHandle: handle for the desktop
+void KyoskLauncher::sweepProcesses(HDESK desktopHandle)
+{
+	DWORD aProcesses[1024], cbNeeded, cProcesses;
+	unsigned int i;
+	EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
+	cProcesses = cbNeeded / sizeof(DWORD);
+
+	int terminated = 0;
+	for (i = 0; i < cProcesses; i++)
+	{
+		if (aProcesses[i] != 0)
+		{
+			DWORD x = listProcessThreads(aProcesses[i]);
+			if (GetThreadDesktop(x) == desktopHandle)
+			{
+				terminated++;
+				if (terminateProcessHandle(aProcesses[i]) == true)
+				{
+					LOG(INFO) << "Closed the process with: " << aProcesses[i] << " PID";
+				}
+				else
+				{
+					LOG(ERROR) << "Unable to close the process with: " << aProcesses[i] << " PID";
+				}
+			}
+		}
+	}
+	LOG(INFO) << "Closed "<< terminated << " processes";
+}
+
+/// function listProcessThreads takes a snapshot of all runing threads 
+/// and returns the thread id that belongs to the received PID
+/// param dwOwnerPID: process identificator
+DWORD KyoskLauncher::listProcessThreads(DWORD dwOwnerPID)
+{
+	HANDLE hThreadSnap = INVALID_HANDLE_VALUE;
+	THREADENTRY32 te32;
+
+	/// Snapshot of all running threads  
+	hThreadSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+	if (hThreadSnap == INVALID_HANDLE_VALUE)
+		return(FALSE);
+
+	/// Fill in the size of the structure before using it. 
+	te32.dwSize = sizeof(THREADENTRY32);
+
+	/// Retrieve information about the first thread, and exit if unsuccessful
+	if (!Thread32First(hThreadSnap, &te32))
+	{
+		CloseHandle(hThreadSnap);     // Must clean up the snapshot object!
+		return(FALSE);
+	}
+
+	/// Iterate the thread list and return the belonging to the specified process
+	do
+	{
+		if (te32.th32OwnerProcessID == dwOwnerPID)
+		{
+			return te32.th32ThreadID;
+		}
+	} while (Thread32Next(hThreadSnap, &te32));
+
+	CloseHandle(hThreadSnap);
+	return 0;
+}
+
+/// function terminateProcessHandle terminates a process based on PID
+/// param dwProcessId: process idenficator
+BOOL KyoskLauncher::terminateProcessHandle(DWORD dwProcessId)
+{
+	//DWORD dwDesiredAccess = PROCESS_TERMINATE;
+	//BOOL  bInheritHandle = FALSE;
+	/// Get a handle on the process with the specified PID
+	HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, dwProcessId);
+	if (hProcess == NULL)
+		return FALSE; /// If the PID is invalid the handle will be invalid
+
+	UINT uExitCode = 0;
+	BOOL result = TerminateProcess(hProcess, uExitCode); /// Closing the process
+	CloseHandle(hProcess);
+	return result;
 }

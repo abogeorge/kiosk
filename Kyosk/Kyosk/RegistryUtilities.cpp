@@ -120,3 +120,37 @@ bool RegistryUtilities::lockStatus()
 
 	return false;
 }
+
+/// lockStatus function queries the registry to check if the user requested a lock on the second desktop
+bool RegistryUtilities::keepAppsStatus()
+{
+	HKEY hkey;
+	if (RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\Kiosk", 0, KEY_READ, &hkey) == ERROR_SUCCESS)
+	{
+		DWORD type;
+		DWORD cbData;
+		if (RegQueryValueEx(hkey, L"KeepApps", NULL, &type, NULL, &cbData) != ERROR_SUCCESS)
+		{
+			RegCloseKey(hkey);
+		}
+		wstring value(cbData / sizeof(wchar_t), L'\0');
+		if (RegQueryValueEx(hkey, L"KeepApps", NULL, NULL, reinterpret_cast<LPBYTE>(&value[0]), &cbData) != ERROR_SUCCESS)
+		{
+			RegCloseKey(hkey);
+			throw "Could not read registry value";
+		}
+
+		RegCloseKey(hkey);
+
+		size_t firstNull = value.find_first_of(L'\0');
+		if (firstNull != string::npos)
+			value.resize(firstNull);
+
+		if (value[0] == '\x1'){
+			return true;
+		}
+
+	}
+
+	return false;
+}
