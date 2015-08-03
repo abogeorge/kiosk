@@ -19,5 +19,6 @@ void NamedPipeUtilities::sendMessage(std::string message)
 	HANDLE pipe = CreateFile(L"\\\\.\\pipe\\TrayIconPipe", GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
 	DWORD numWritten;
 	WriteFile(pipe, message.c_str(), message.length(), &numWritten, NULL);
+	CloseHandle(pipe); 
 
 }

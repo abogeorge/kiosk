@@ -3420,3 +3420,481 @@
 16/07/2015 - 02:02:59 - INFO  - Closed the new thread desktop and returned to the original one
 16/07/2015 - 02:02:59 - INFO  - *** LOG CLOSED ***
 
+16/07/2015 - 02:06:21 - INFO  - *** LOG INITIALIZED ***
+16/07/2015 - 02:06:21 - INFO  - Created desktops
+16/07/2015 - 02:06:21 - INFO  - Started the key listener for the current desktop
+16/07/2015 - 02:06:21 - INFO  - Started the key listener for the new desktop
+16/07/2015 - 02:06:21 - INFO  - Started the tray icon for the new desktop
+16/07/2015 - 02:06:21 - INFO  - Started the tray icon for the new desktop
+16/07/2015 - 02:06:21 - INFO  - Disabled options from CTRL+ALT+DEL menu
+16/07/2015 - 02:06:21 - INFO  - Started the new explorer process
+16/07/2015 - 02:06:21 - INFO  - Waiting for either LCTRL or ESC to be pressed
+16/07/2015 - 02:06:23 - INFO  - Switched to the new desktop
+16/07/2015 - 02:06:31 - INFO  - Switched to the original desktop
+16/07/2015 - 02:06:36 - INFO  - Detected ESC press
+16/07/2015 - 02:06:36 - INFO  - Enabled options from CTRL+ALT+DEL menu
+16/07/2015 - 02:06:36 - INFO  - Closed the key listener for the current desktop
+16/07/2015 - 02:06:36 - INFO  - Closed the key listener for the new desktop
+16/07/2015 - 02:06:36 - INFO  - Closed the tray icon for the new desktop
+16/07/2015 - 02:06:36 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:287 - Unable to close the tray icon for the current desktop
+16/07/2015 - 02:06:36 - INFO  - Closed the new thread desktop and returned to the original one
+16/07/2015 - 02:06:36 - INFO  - *** LOG CLOSED ***
+
+17/07/2015 - 00:51:04 - INFO  - *** LOG INITIALIZED ***
+17/07/2015 - 00:51:04 - INFO  - Created desktops
+17/07/2015 - 00:51:04 - INFO  - Started the key listener for the current desktop
+17/07/2015 - 00:51:04 - INFO  - Started the key listener for the new desktop
+17/07/2015 - 00:51:04 - INFO  - Started the tray icon for the new desktop
+17/07/2015 - 00:51:04 - INFO  - Started the tray icon for the new desktop
+17/07/2015 - 00:51:04 - INFO  - Disabled options from CTRL+ALT+DEL menu
+17/07/2015 - 00:51:04 - INFO  - Started the new explorer process
+17/07/2015 - 00:51:04 - INFO  - Waiting for either LCTRL or ESC to be pressed
+17/07/2015 - 00:51:06 - INFO  - Switched to the new desktop
+17/07/2015 - 00:51:10 - INFO  - Switched to the original desktop
+17/07/2015 - 00:51:11 - INFO  - Detected ESC press
+17/07/2015 - 00:51:11 - INFO  - Enabled options from CTRL+ALT+DEL menu
+17/07/2015 - 00:51:11 - INFO  - Closed the key listener for the current desktop
+17/07/2015 - 00:51:11 - INFO  - Closed the key listener for the new desktop
+17/07/2015 - 00:51:11 - INFO  - Closed the tray icon for the new desktop
+17/07/2015 - 00:51:11 - INFO  - Closed the tray icon for the current desktop
+17/07/2015 - 00:51:11 - INFO  - Closed the new thread desktop and returned to the original one
+17/07/2015 - 00:51:11 - INFO  - *** LOG CLOSED ***
+
+17/07/2015 - 01:28:43 - INFO  - *** LOG INITIALIZED ***
+17/07/2015 - 01:28:43 - INFO  - Created desktops
+17/07/2015 - 01:28:43 - INFO  - Started the key listener for the current desktop
+17/07/2015 - 01:28:43 - INFO  - Started the key listener for the new desktop
+17/07/2015 - 01:28:43 - INFO  - Started the tray icon for the new desktop
+17/07/2015 - 01:28:43 - INFO  - Started the tray icon for the new desktop
+17/07/2015 - 01:28:43 - INFO  - Disabled options from CTRL+ALT+DEL menu
+17/07/2015 - 01:28:43 - INFO  - Started the new explorer process
+17/07/2015 - 01:28:43 - INFO  - Waiting for either LCTRL or ESC to be pressed
+17/07/2015 - 01:28:45 - INFO  - Switched to the new desktop
+17/07/2015 - 01:28:48 - INFO  - Switched to the original desktop
+17/07/2015 - 01:28:49 - INFO  - Switched to the new desktop
+17/07/2015 - 01:28:50 - INFO  - Switched to the original desktop
+17/07/2015 - 01:28:51 - INFO  - Switched to the new desktop
+17/07/2015 - 01:28:56 - INFO  - Detected ESC press
+17/07/2015 - 01:28:56 - INFO  - Enabled options from CTRL+ALT+DEL menu
+17/07/2015 - 01:28:56 - INFO  - Closed the key listener for the current desktop
+17/07/2015 - 01:28:56 - INFO  - Closed the key listener for the new desktop
+17/07/2015 - 01:28:56 - INFO  - Closed the tray icon for the new desktop
+17/07/2015 - 01:28:56 - INFO  - Closed the tray icon for the current desktop
+17/07/2015 - 01:28:56 - INFO  - Closed the new thread desktop and returned to the original one
+17/07/2015 - 01:28:56 - INFO  - *** LOG CLOSED ***
+
+20/07/2015 - 01:37:48 - INFO  - *** LOG INITIALIZED ***
+20/07/2015 - 01:37:48 - INFO  - Created desktops
+20/07/2015 - 01:37:48 - INFO  - Started the key listener for the current desktop
+20/07/2015 - 01:37:48 - INFO  - Started the key listener for the new desktop
+20/07/2015 - 01:37:48 - INFO  - Started the tray icon for the new desktop
+20/07/2015 - 01:37:48 - INFO  - Started the tray icon for the new desktop
+20/07/2015 - 01:37:49 - INFO  - Disabled options from CTRL+ALT+DEL menu
+20/07/2015 - 01:37:49 - INFO  - Started the new explorer process
+20/07/2015 - 01:37:49 - INFO  - Waiting for either LCTRL or ESC to be pressed
+20/07/2015 - 01:37:51 - INFO  - Switched to the new desktop
+20/07/2015 - 01:38:09 - INFO  - Switched to the original desktop
+20/07/2015 - 01:38:09 - INFO  - Detected ESC press
+20/07/2015 - 01:38:09 - INFO  - Enabled options from CTRL+ALT+DEL menu
+20/07/2015 - 01:38:09 - INFO  - Closed the key listener for the current desktop
+20/07/2015 - 01:38:09 - INFO  - Closed the key listener for the new desktop
+20/07/2015 - 01:38:09 - INFO  - Closed the tray icon for the new desktop
+20/07/2015 - 01:38:09 - INFO  - Closed the tray icon for the current desktop
+20/07/2015 - 01:38:09 - INFO  - Closed the new thread desktop and returned to the original one
+20/07/2015 - 01:38:09 - INFO  - *** LOG CLOSED ***
+
+20/07/2015 - 01:38:16 - INFO  - *** LOG INITIALIZED ***
+20/07/2015 - 01:38:16 - INFO  - Created desktops
+20/07/2015 - 01:38:16 - INFO  - Started the key listener for the current desktop
+20/07/2015 - 01:38:16 - INFO  - Started the key listener for the new desktop
+20/07/2015 - 01:38:16 - INFO  - Started the tray icon for the new desktop
+20/07/2015 - 01:38:16 - INFO  - Started the tray icon for the new desktop
+20/07/2015 - 01:38:16 - INFO  - Disabled options from CTRL+ALT+DEL menu
+20/07/2015 - 01:38:16 - INFO  - Started the new explorer process
+20/07/2015 - 01:38:16 - INFO  - Waiting for either LCTRL or ESC to be pressed
+20/07/2015 - 01:38:18 - INFO  - Switched to the new desktop
+20/07/2015 - 01:38:25 - INFO  - Switched to the original desktop
+20/07/2015 - 01:38:26 - INFO  - Switched to the new desktop
+20/07/2015 - 01:38:28 - INFO  - Detected ESC press
+20/07/2015 - 01:38:28 - INFO  - Enabled options from CTRL+ALT+DEL menu
+20/07/2015 - 01:38:28 - INFO  - Closed the key listener for the current desktop
+20/07/2015 - 01:38:28 - INFO  - Closed the key listener for the new desktop
+20/07/2015 - 01:38:28 - INFO  - Closed the tray icon for the new desktop
+20/07/2015 - 01:38:28 - INFO  - Closed the tray icon for the current desktop
+20/07/2015 - 01:38:28 - INFO  - Closed the new thread desktop and returned to the original one
+20/07/2015 - 01:38:28 - INFO  - *** LOG CLOSED ***
+
+21/07/2015 - 00:07:06 - INFO  - *** LOG INITIALIZED ***
+21/07/2015 - 00:07:06 - INFO  - Created desktops
+21/07/2015 - 00:07:06 - INFO  - Started the key listener for the current desktop
+21/07/2015 - 00:07:06 - INFO  - Started the key listener for the new desktop
+21/07/2015 - 00:07:06 - INFO  - Started the tray icon for the new desktop
+21/07/2015 - 00:07:06 - INFO  - Started the tray icon for the new desktop
+21/07/2015 - 00:07:06 - INFO  - Disabled options from CTRL+ALT+DEL menu
+21/07/2015 - 00:07:06 - INFO  - Started the new explorer process
+21/07/2015 - 00:07:06 - INFO  - Waiting for either LCTRL or ESC to be pressed
+21/07/2015 - 00:07:08 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:10 - INFO  - Detected ESC press
+21/07/2015 - 00:07:10 - INFO  - Enabled options from CTRL+ALT+DEL menu
+21/07/2015 - 00:07:10 - INFO  - Closed the key listener for the current desktop
+21/07/2015 - 00:07:10 - INFO  - Closed the key listener for the new desktop
+21/07/2015 - 00:07:10 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:277 - Unable to close the tray icon for the new desktop
+21/07/2015 - 00:07:10 - INFO  - Closed the tray icon for the current desktop
+21/07/2015 - 00:07:10 - INFO  - Closed the new thread desktop and returned to the original one
+21/07/2015 - 00:07:10 - INFO  - *** LOG CLOSED ***
+
+21/07/2015 - 00:07:15 - INFO  - *** LOG INITIALIZED ***
+21/07/2015 - 00:07:15 - INFO  - Created desktops
+21/07/2015 - 00:07:15 - INFO  - Started the key listener for the current desktop
+21/07/2015 - 00:07:15 - INFO  - Started the key listener for the new desktop
+21/07/2015 - 00:07:15 - INFO  - Started the tray icon for the new desktop
+21/07/2015 - 00:07:15 - INFO  - Started the tray icon for the new desktop
+21/07/2015 - 00:07:15 - INFO  - Disabled options from CTRL+ALT+DEL menu
+21/07/2015 - 00:07:16 - INFO  - Started the new explorer process
+21/07/2015 - 00:07:16 - INFO  - Waiting for either LCTRL or ESC to be pressed
+21/07/2015 - 00:07:17 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:20 - INFO  - Switched to the original desktop
+21/07/2015 - 00:07:21 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:25 - INFO  - Switched to the original desktop
+21/07/2015 - 00:07:26 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:28 - INFO  - Switched to the original desktop
+21/07/2015 - 00:07:30 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:31 - INFO  - Switched to the original desktop
+21/07/2015 - 00:07:32 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:32 - INFO  - Switched to the original desktop
+21/07/2015 - 00:07:33 - INFO  - Switched to the new desktop
+21/07/2015 - 00:07:35 - INFO  - Detected ESC press
+21/07/2015 - 00:07:35 - INFO  - Enabled options from CTRL+ALT+DEL menu
+21/07/2015 - 00:07:35 - INFO  - Closed the key listener for the current desktop
+21/07/2015 - 00:07:35 - INFO  - Closed the key listener for the new desktop
+21/07/2015 - 00:07:35 - INFO  - Closed the tray icon for the new desktop
+21/07/2015 - 00:07:35 - INFO  - Closed the tray icon for the current desktop
+21/07/2015 - 00:07:35 - INFO  - Closed the new thread desktop and returned to the original one
+21/07/2015 - 00:07:35 - INFO  - *** LOG CLOSED ***
+
+22/07/2015 - 00:01:47 - INFO  - *** LOG INITIALIZED ***
+22/07/2015 - 00:01:47 - INFO  - Created desktops
+22/07/2015 - 00:01:48 - INFO  - Started the key listener for the current desktop
+22/07/2015 - 00:01:48 - INFO  - Started the key listener for the new desktop
+22/07/2015 - 00:01:48 - INFO  - Started the tray icon for the new desktop
+22/07/2015 - 00:01:48 - INFO  - Started the tray icon for the new desktop
+22/07/2015 - 00:01:48 - INFO  - Disabled options from CTRL+ALT+DEL menu
+22/07/2015 - 00:01:48 - INFO  - Started the new explorer process
+22/07/2015 - 00:01:48 - INFO  - Waiting for either LCTRL or ESC to be pressed
+22/07/2015 - 00:01:52 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:01 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:03 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:04 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:05 - INFO  - Detected ESC press
+22/07/2015 - 00:02:05 - INFO  - Enabled options from CTRL+ALT+DEL menu
+22/07/2015 - 00:02:05 - INFO  - Closed the key listener for the current desktop
+22/07/2015 - 00:02:05 - INFO  - Closed the key listener for the new desktop
+22/07/2015 - 00:02:05 - INFO  - Closed the tray icon for the new desktop
+22/07/2015 - 00:02:05 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:287 - Unable to close the tray icon for the current desktop
+22/07/2015 - 00:02:05 - INFO  - Closed the new thread desktop and returned to the original one
+22/07/2015 - 00:02:05 - INFO  - *** LOG CLOSED ***
+
+22/07/2015 - 00:02:12 - INFO  - *** LOG INITIALIZED ***
+22/07/2015 - 00:02:12 - INFO  - Created desktops
+22/07/2015 - 00:02:12 - INFO  - Started the key listener for the current desktop
+22/07/2015 - 00:02:12 - INFO  - Started the key listener for the new desktop
+22/07/2015 - 00:02:12 - INFO  - Started the tray icon for the new desktop
+22/07/2015 - 00:02:12 - INFO  - Started the tray icon for the new desktop
+22/07/2015 - 00:02:12 - INFO  - Disabled options from CTRL+ALT+DEL menu
+22/07/2015 - 00:02:12 - INFO  - Started the new explorer process
+22/07/2015 - 00:02:12 - INFO  - Waiting for either LCTRL or ESC to be pressed
+22/07/2015 - 00:02:13 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:21 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:22 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:23 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:24 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:24 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:25 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:26 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:27 - INFO  - Switched to the new desktop
+22/07/2015 - 00:02:29 - INFO  - Switched to the original desktop
+22/07/2015 - 00:02:29 - INFO  - Detected ESC press
+22/07/2015 - 00:02:29 - INFO  - Enabled options from CTRL+ALT+DEL menu
+22/07/2015 - 00:02:29 - INFO  - Closed the key listener for the current desktop
+22/07/2015 - 00:02:29 - INFO  - Closed the key listener for the new desktop
+22/07/2015 - 00:02:29 - INFO  - Closed the tray icon for the new desktop
+22/07/2015 - 00:02:29 - INFO  - Closed the tray icon for the current desktop
+22/07/2015 - 00:02:29 - INFO  - Closed the new thread desktop and returned to the original one
+22/07/2015 - 00:02:29 - INFO  - *** LOG CLOSED ***
+
+23/07/2015 - 11:23:47 - INFO  - *** LOG INITIALIZED ***
+23/07/2015 - 11:23:47 - INFO  - Created desktops
+23/07/2015 - 11:23:47 - INFO  - Started the key listener for the current desktop
+23/07/2015 - 11:23:47 - INFO  - Started the key listener for the new desktop
+23/07/2015 - 11:23:47 - INFO  - Started the tray icon for the new desktop
+23/07/2015 - 11:23:47 - INFO  - Started the tray icon for the new desktop
+23/07/2015 - 11:23:47 - INFO  - Disabled options from CTRL+ALT+DEL menu
+23/07/2015 - 11:23:47 - INFO  - Started the new explorer process
+23/07/2015 - 11:23:47 - INFO  - Waiting for either LCTRL or ESC to be pressed
+23/07/2015 - 11:23:53 - INFO  - Switched to the new desktop
+23/07/2015 - 11:24:08 - INFO  - Switched to the original desktop
+23/07/2015 - 11:24:09 - INFO  - Detected ESC press
+23/07/2015 - 11:24:09 - INFO  - Enabled options from CTRL+ALT+DEL menu
+23/07/2015 - 11:24:09 - INFO  - Closed the key listener for the current desktop
+23/07/2015 - 11:24:09 - INFO  - Closed the key listener for the new desktop
+23/07/2015 - 11:24:09 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:277 - Unable to close the tray icon for the new desktop
+23/07/2015 - 11:24:09 - INFO  - Closed the tray icon for the current desktop
+23/07/2015 - 11:24:09 - INFO  - Closed the new thread desktop and returned to the original one
+23/07/2015 - 11:24:09 - INFO  - *** LOG CLOSED ***
+
+23/07/2015 - 11:24:18 - INFO  - *** LOG INITIALIZED ***
+23/07/2015 - 11:24:18 - INFO  - Created desktops
+23/07/2015 - 11:24:18 - INFO  - Started the key listener for the current desktop
+23/07/2015 - 11:24:18 - INFO  - Started the key listener for the new desktop
+23/07/2015 - 11:24:18 - INFO  - Started the tray icon for the new desktop
+23/07/2015 - 11:24:18 - INFO  - Started the tray icon for the new desktop
+23/07/2015 - 11:24:18 - INFO  - Disabled options from CTRL+ALT+DEL menu
+23/07/2015 - 11:24:18 - INFO  - Started the new explorer process
+23/07/2015 - 11:24:18 - INFO  - Waiting for either LCTRL or ESC to be pressed
+23/07/2015 - 11:24:20 - INFO  - Switched to the new desktop
+23/07/2015 - 11:24:23 - INFO  - Switched to the original desktop
+23/07/2015 - 11:24:23 - INFO  - Switched to the new desktop
+23/07/2015 - 11:24:24 - INFO  - Switched to the original desktop
+23/07/2015 - 11:24:24 - INFO  - Switched to the new desktop
+23/07/2015 - 11:24:24 - INFO  - Switched to the original desktop
+23/07/2015 - 11:24:24 - INFO  - Switched to the new desktop
+23/07/2015 - 11:24:25 - INFO  - Switched to the original desktop
+23/07/2015 - 11:24:26 - INFO  - Switched to the new desktop
+23/07/2015 - 11:24:27 - INFO  - Switched to the original desktop
+23/07/2015 - 11:24:29 - INFO  - Detected ESC press
+23/07/2015 - 11:24:29 - INFO  - Enabled options from CTRL+ALT+DEL menu
+23/07/2015 - 11:24:29 - INFO  - Closed the key listener for the current desktop
+23/07/2015 - 11:24:29 - INFO  - Closed the key listener for the new desktop
+23/07/2015 - 11:24:29 - INFO  - Closed the tray icon for the new desktop
+23/07/2015 - 11:24:29 - INFO  - Closed the tray icon for the current desktop
+23/07/2015 - 11:24:29 - INFO  - Closed the new thread desktop and returned to the original one
+23/07/2015 - 11:24:29 - INFO  - *** LOG CLOSED ***
+
+28/07/2015 - 03:41:39 - INFO  - *** LOG INITIALIZED ***
+28/07/2015 - 03:41:39 - INFO  - Created desktops
+28/07/2015 - 03:41:39 - INFO  - Started the key listener for the current desktop
+28/07/2015 - 03:41:39 - INFO  - Started the key listener for the new desktop
+28/07/2015 - 03:41:39 - INFO  - Started the tray icon for the new desktop
+28/07/2015 - 03:41:39 - INFO  - Started the tray icon for the new desktop
+28/07/2015 - 03:41:39 - INFO  - Disabled options from CTRL+ALT+DEL menu
+28/07/2015 - 03:41:39 - INFO  - Started the new explorer process
+28/07/2015 - 03:41:39 - INFO  - Waiting for either LCTRL or ESC to be pressed
+28/07/2015 - 03:42:09 - INFO  - Switched to the new desktop
+28/07/2015 - 03:42:10 - INFO  - Switched to the original desktop
+28/07/2015 - 03:42:11 - INFO  - Detected ESC press
+28/07/2015 - 03:42:11 - INFO  - Enabled options from CTRL+ALT+DEL menu
+28/07/2015 - 03:42:11 - INFO  - Closed the key listener for the current desktop
+28/07/2015 - 03:42:11 - INFO  - Closed the key listener for the new desktop
+28/07/2015 - 03:42:11 - INFO  - Closed the tray icon for the new desktop
+28/07/2015 - 03:42:11 - INFO  - Closed the tray icon for the current desktop
+28/07/2015 - 03:42:11 - INFO  - Closed the new thread desktop and returned to the original one
+28/07/2015 - 03:42:11 - INFO  - *** LOG CLOSED ***
+
+29/07/2015 - 00:36:54 - INFO  - *** LOG INITIALIZED ***
+29/07/2015 - 00:36:54 - INFO  - Created desktops
+29/07/2015 - 00:36:54 - INFO  - Started the key listener for the current desktop
+29/07/2015 - 00:36:54 - INFO  - Started the key listener for the new desktop
+29/07/2015 - 00:36:54 - INFO  - Started the tray icon for the new desktop
+29/07/2015 - 00:36:54 - INFO  - Started the tray icon for the new desktop
+29/07/2015 - 00:36:54 - INFO  - Disabled options from CTRL+ALT+DEL menu
+29/07/2015 - 00:36:54 - INFO  - User requested a Desktop Lock
+29/07/2015 - 00:36:54 - INFO  - Started the new explorer process
+29/07/2015 - 00:36:54 - INFO  - Waiting for either LCTRL or ESC to be pressed
+29/07/2015 - 00:36:57 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:03 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:05 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:06 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:07 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:08 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:08 - INFO  - Detected ESC press
+29/07/2015 - 00:37:08 - INFO  - Enabled options from CTRL+ALT+DEL menu
+29/07/2015 - 00:37:08 - INFO  - Closed the key listener for the current desktop
+29/07/2015 - 00:37:08 - INFO  - Closed the key listener for the new desktop
+29/07/2015 - 00:37:08 - INFO  - Closed the tray icon for the new desktop
+29/07/2015 - 00:37:08 - INFO  - Closed the tray icon for the current desktop
+29/07/2015 - 00:37:08 - INFO  - Closed the new thread desktop and returned to the original one
+29/07/2015 - 00:37:08 - INFO  - *** LOG CLOSED ***
+
+29/07/2015 - 00:37:41 - INFO  - *** LOG INITIALIZED ***
+29/07/2015 - 00:37:41 - INFO  - Created desktops
+29/07/2015 - 00:37:41 - INFO  - Started the key listener for the current desktop
+29/07/2015 - 00:37:41 - INFO  - Started the key listener for the new desktop
+29/07/2015 - 00:37:41 - INFO  - Started the tray icon for the new desktop
+29/07/2015 - 00:37:41 - INFO  - Started the tray icon for the new desktop
+29/07/2015 - 00:37:41 - INFO  - Disabled options from CTRL+ALT+DEL menu
+29/07/2015 - 00:37:41 - INFO  - Started the new explorer process
+29/07/2015 - 00:37:41 - INFO  - Waiting for either LCTRL or ESC to be pressed
+29/07/2015 - 00:37:43 - INFO  - Switched to the new desktop
+29/07/2015 - 00:37:54 - INFO  - Switched to the original desktop
+29/07/2015 - 00:37:59 - INFO  - Detected ESC press
+29/07/2015 - 00:37:59 - INFO  - Enabled options from CTRL+ALT+DEL menu
+29/07/2015 - 00:37:59 - INFO  - Closed the key listener for the current desktop
+29/07/2015 - 00:37:59 - INFO  - Closed the key listener for the new desktop
+29/07/2015 - 00:37:59 - INFO  - Closed the tray icon for the new desktop
+29/07/2015 - 00:37:59 - INFO  - Closed the tray icon for the current desktop
+29/07/2015 - 00:37:59 - INFO  - Closed the new thread desktop and returned to the original one
+29/07/2015 - 00:37:59 - INFO  - *** LOG CLOSED ***
+
+31/07/2015 - 08:01:45 - INFO  - *** LOG INITIALIZED ***
+31/07/2015 - 08:01:45 - INFO  - Created desktops
+31/07/2015 - 08:01:45 - INFO  - Started the key listener for the current desktop
+31/07/2015 - 08:01:45 - INFO  - Started the key listener for the new desktop
+31/07/2015 - 08:01:45 - INFO  - Started the tray icon for the new desktop
+31/07/2015 - 08:01:45 - INFO  - Started the tray icon for the new desktop
+31/07/2015 - 08:01:45 - INFO  - Disabled options from CTRL+ALT+DEL menu
+31/07/2015 - 08:01:45 - INFO  - Started the new explorer process
+31/07/2015 - 08:01:45 - INFO  - Waiting for either LCTRL or ESC to be pressed
+31/07/2015 - 08:01:57 - INFO  - Switched to the new desktop
+31/07/2015 - 08:01:58 - INFO  - Switched to the original desktop
+31/07/2015 - 08:01:59 - INFO  - Detected ESC press
+31/07/2015 - 08:01:59 - INFO  - Enabled options from CTRL+ALT+DEL menu
+31/07/2015 - 08:01:59 - INFO  - Closed the key listener for the current desktop
+31/07/2015 - 08:01:59 - INFO  - Closed the key listener for the new desktop
+31/07/2015 - 08:01:59 - INFO  - Closed the tray icon for the new desktop
+31/07/2015 - 08:01:59 - INFO  - Closed the tray icon for the current desktop
+31/07/2015 - 08:01:59 - INFO  - Closed the new thread desktop and returned to the original one
+31/07/2015 - 08:01:59 - INFO  - *** LOG CLOSED ***
+
+31/07/2015 - 08:02:14 - INFO  - *** LOG INITIALIZED ***
+31/07/2015 - 08:02:14 - INFO  - Created desktops
+31/07/2015 - 08:02:14 - INFO  - Started the key listener for the current desktop
+31/07/2015 - 08:02:14 - INFO  - Started the key listener for the new desktop
+31/07/2015 - 08:02:14 - INFO  - Started the tray icon for the new desktop
+31/07/2015 - 08:02:14 - INFO  - Started the tray icon for the new desktop
+31/07/2015 - 08:02:14 - INFO  - Disabled options from CTRL+ALT+DEL menu
+31/07/2015 - 08:02:14 - INFO  - Started the new explorer process
+31/07/2015 - 08:02:14 - INFO  - Waiting for either LCTRL or ESC to be pressed
+31/07/2015 - 08:04:26 - INFO  - Switched to the new desktop
+31/07/2015 - 08:05:01 - INFO  - Switched to the original desktop
+31/07/2015 - 08:05:15 - INFO  - Switched to the new desktop
+31/07/2015 - 08:05:21 - INFO  - Switched to the original desktop
+31/07/2015 - 08:05:23 - INFO  - Switched to the new desktop
+31/07/2015 - 08:05:26 - INFO  - Switched to the original desktop
+31/07/2015 - 08:05:51 - INFO  - Switched to the new desktop
+31/07/2015 - 08:05:59 - INFO  - Detected ESC press
+31/07/2015 - 08:05:59 - INFO  - Enabled options from CTRL+ALT+DEL menu
+31/07/2015 - 08:05:59 - INFO  - Closed the key listener for the current desktop
+31/07/2015 - 08:05:59 - INFO  - Closed the key listener for the new desktop
+31/07/2015 - 08:05:59 - INFO  - Closed the tray icon for the new desktop
+31/07/2015 - 08:05:59 - INFO  - Closed the tray icon for the current desktop
+31/07/2015 - 08:05:59 - INFO  - Closed the new thread desktop and returned to the original one
+31/07/2015 - 08:05:59 - INFO  - *** LOG CLOSED ***
+
+31/07/2015 - 08:07:29 - INFO  - *** LOG INITIALIZED ***
+31/07/2015 - 08:07:29 - INFO  - Created desktops
+31/07/2015 - 08:07:29 - INFO  - Started the key listener for the current desktop
+31/07/2015 - 08:07:29 - INFO  - Started the key listener for the new desktop
+31/07/2015 - 08:07:29 - INFO  - Started the tray icon for the new desktop
+31/07/2015 - 08:07:29 - INFO  - Started the tray icon for the new desktop
+31/07/2015 - 08:07:29 - INFO  - Disabled options from CTRL+ALT+DEL menu
+31/07/2015 - 08:07:29 - INFO  - Started the new explorer process
+31/07/2015 - 08:07:29 - INFO  - Waiting for either LCTRL or ESC to be pressed
+31/07/2015 - 08:07:32 - INFO  - Switched to the new desktop
+31/07/2015 - 08:07:51 - INFO  - Switched to the original desktop
+31/07/2015 - 08:08:42 - INFO  - Switched to the new desktop
+31/07/2015 - 08:08:47 - INFO  - Detected ESC press
+31/07/2015 - 08:08:47 - INFO  - Enabled options from CTRL+ALT+DEL menu
+31/07/2015 - 08:08:47 - INFO  - Closed the key listener for the current desktop
+31/07/2015 - 08:08:47 - INFO  - Closed the key listener for the new desktop
+31/07/2015 - 08:08:47 - INFO  - Closed the tray icon for the new desktop
+31/07/2015 - 08:08:47 - INFO  - Closed the tray icon for the current desktop
+31/07/2015 - 08:08:47 - INFO  - Closed the new thread desktop and returned to the original one
+31/07/2015 - 08:08:47 - INFO  - *** LOG CLOSED ***
+
+03/08/2015 - 00:37:25 - INFO  - *** LOG INITIALIZED ***
+03/08/2015 - 00:37:25 - INFO  - Created desktops
+03/08/2015 - 00:37:25 - INFO  - Started the key listener for the current desktop
+03/08/2015 - 00:37:25 - INFO  - Started the key listener for the new desktop
+03/08/2015 - 00:37:25 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:37:25 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:37:25 - INFO  - Disabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:37:25 - INFO  - User requested a custom process to be started
+03/08/2015 - 00:37:27 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:186 - Unable to start the new additional process
+03/08/2015 - 00:37:27 - INFO  - Waiting for either LCTRL or ESC to be pressed
+03/08/2015 - 00:37:27 - INFO  - Detected ESC press
+03/08/2015 - 00:37:27 - INFO  - Enabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:37:27 - INFO  - Closed the key listener for the current desktop
+03/08/2015 - 00:37:27 - INFO  - Closed the key listener for the new desktop
+03/08/2015 - 00:37:27 - INFO  - Closed the tray icon for the new desktop
+03/08/2015 - 00:37:27 - INFO  - Closed the tray icon for the current desktop
+03/08/2015 - 00:37:27 - INFO  - Closed the new thread desktop and returned to the original one
+03/08/2015 - 00:37:27 - INFO  - *** LOG CLOSED ***
+
+03/08/2015 - 00:38:06 - INFO  - *** LOG INITIALIZED ***
+03/08/2015 - 00:38:06 - INFO  - Created desktops
+03/08/2015 - 00:38:06 - INFO  - Started the key listener for the current desktop
+03/08/2015 - 00:38:06 - INFO  - Started the key listener for the new desktop
+03/08/2015 - 00:38:06 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:38:06 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:38:06 - INFO  - Disabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:38:06 - INFO  - User requested a custom process to be started
+03/08/2015 - 00:38:12 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:186 - Unable to start the new additional process
+03/08/2015 - 00:38:12 - INFO  - Waiting for either LCTRL or ESC to be pressed
+03/08/2015 - 00:38:12 - INFO  - Detected ESC press
+03/08/2015 - 00:38:12 - INFO  - Enabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:38:12 - INFO  - Closed the key listener for the current desktop
+03/08/2015 - 00:38:12 - INFO  - Closed the key listener for the new desktop
+03/08/2015 - 00:38:12 - INFO  - Closed the tray icon for the new desktop
+03/08/2015 - 00:38:12 - INFO  - Closed the tray icon for the current desktop
+03/08/2015 - 00:38:12 - INFO  - Closed the new thread desktop and returned to the original one
+03/08/2015 - 00:38:12 - INFO  - *** LOG CLOSED ***
+
+03/08/2015 - 00:49:36 - INFO  - *** LOG INITIALIZED ***
+03/08/2015 - 00:49:36 - INFO  - Created desktops
+03/08/2015 - 00:49:36 - INFO  - Started the key listener for the current desktop
+03/08/2015 - 00:49:36 - INFO  - Started the key listener for the new desktop
+03/08/2015 - 00:49:36 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:49:36 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:49:36 - INFO  - Disabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:49:36 - INFO  - User requested a custom process to be started
+03/08/2015 - 00:49:38 - ERROR - d:\projects\kiosk\kyosk\kyosk\kyosklauncher.cpp:189 - Unable to start the new additional process
+03/08/2015 - 00:49:38 - INFO  - Waiting for either LCTRL or ESC to be pressed
+03/08/2015 - 00:49:38 - INFO  - Detected ESC press
+03/08/2015 - 00:49:38 - INFO  - Enabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:49:38 - INFO  - Closed the key listener for the current desktop
+03/08/2015 - 00:49:38 - INFO  - Closed the key listener for the new desktop
+03/08/2015 - 00:49:38 - INFO  - Closed the tray icon for the new desktop
+03/08/2015 - 00:49:38 - INFO  - Closed the tray icon for the current desktop
+03/08/2015 - 00:49:38 - INFO  - Closed the new thread desktop and returned to the original one
+03/08/2015 - 00:49:38 - INFO  - *** LOG CLOSED ***
+
+03/08/2015 - 00:52:08 - INFO  - *** LOG INITIALIZED ***
+03/08/2015 - 00:52:08 - INFO  - Created desktops
+03/08/2015 - 00:52:08 - INFO  - Started the key listener for the current desktop
+03/08/2015 - 00:52:08 - INFO  - Started the key listener for the new desktop
+03/08/2015 - 00:52:08 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:52:08 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:52:08 - INFO  - Disabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:52:08 - INFO  - Started the new explorer process
+03/08/2015 - 00:52:08 - INFO  - Waiting for either LCTRL or ESC to be pressed
+03/08/2015 - 00:52:10 - INFO  - Switched to the new desktop
+03/08/2015 - 00:52:14 - INFO  - Switched to the original desktop
+03/08/2015 - 00:52:15 - INFO  - Detected ESC press
+03/08/2015 - 00:52:15 - INFO  - Enabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:52:15 - INFO  - Closed the key listener for the current desktop
+03/08/2015 - 00:52:15 - INFO  - Closed the key listener for the new desktop
+03/08/2015 - 00:52:15 - INFO  - Closed the tray icon for the new desktop
+03/08/2015 - 00:52:15 - INFO  - Closed the tray icon for the current desktop
+03/08/2015 - 00:52:15 - INFO  - Closed the new thread desktop and returned to the original one
+03/08/2015 - 00:52:15 - INFO  - *** LOG CLOSED ***
+
+03/08/2015 - 00:52:40 - INFO  - *** LOG INITIALIZED ***
+03/08/2015 - 00:52:40 - INFO  - Created desktops
+03/08/2015 - 00:52:40 - INFO  - Started the key listener for the current desktop
+03/08/2015 - 00:52:40 - INFO  - Started the key listener for the new desktop
+03/08/2015 - 00:52:40 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:52:40 - INFO  - Started the tray icon for the new desktop
+03/08/2015 - 00:52:40 - INFO  - Disabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:52:40 - INFO  - User requested a custom process to be started
+03/08/2015 - 00:52:40 - INFO  - Started the additional process
+03/08/2015 - 00:52:40 - INFO  - Waiting for either LCTRL or ESC to be pressed
+03/08/2015 - 00:52:42 - INFO  - Switched to the new desktop
+03/08/2015 - 00:52:44 - INFO  - Detected ESC press
+03/08/2015 - 00:52:44 - INFO  - Enabled options from CTRL+ALT+DEL menu
+03/08/2015 - 00:52:44 - INFO  - Closed the key listener for the current desktop
+03/08/2015 - 00:52:44 - INFO  - Closed the key listener for the new desktop
+03/08/2015 - 00:52:44 - INFO  - Closed the tray icon for the new desktop
+03/08/2015 - 00:52:44 - INFO  - Closed the tray icon for the current desktop
+03/08/2015 - 00:52:44 - INFO  - Closed the new thread desktop and returned to the original one
+03/08/2015 - 00:52:44 - INFO  - *** LOG CLOSED ***
+

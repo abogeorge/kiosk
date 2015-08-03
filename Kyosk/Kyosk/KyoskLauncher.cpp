@@ -152,7 +152,13 @@ void KyoskLauncher::startNewKyosk()
 	bool keppAppsStatus = regUtilities.keepAppsStatus();
 
 	/// check if the user asked for a custom application to run
-	LPCWSTR additionalProcess = checkAdditionalProcess();
+	char path[100];
+	ifstream in("application.conf", ios::in);
+	in.getline(path, 100);
+	in.close();
+	wchar_t wpath[101];
+	mbstowcs(wpath, path, strlen(path) + 1);
+	LPCWSTR additionalProcess = wpath;
 
 	if (wcscmp(additionalProcess, L"#") == 0) 
 	{
@@ -331,16 +337,13 @@ bool KyoskLauncher::killProcess(PROCESS_INFORMATION processInfo)
 }
 
 //// function checkAdditionalProcess returns the content of the config file
-LPCWSTR KyoskLauncher::checkAdditionalProcess()
+char* KyoskLauncher::checkAdditionalProcess()
 {
 	char path[100];
 	ifstream in("application.conf", ios::in);
 	in.getline(path, 100);
 	in.close();
-	wchar_t wpath[101];
-	mbstowcs(wpath, path, strlen(path) + 1);
-	LPCWSTR lpath = wpath;
-	return lpath;
+	return path;
 }
 
 /// function sweepProcesses enumerates all processes and compares the thread id

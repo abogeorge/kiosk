@@ -116,7 +116,6 @@ bool RegistryUtilities::lockStatus()
 		if (RegQueryValueEx(hkey, L"DeactivateSwitch", NULL, NULL, reinterpret_cast<LPBYTE>(&value[0]), &cbData) != ERROR_SUCCESS)
 		{
 			RegCloseKey(hkey);
-			throw "Could not read registry value";
 		}
 
 		RegCloseKey(hkey);
@@ -153,7 +152,6 @@ bool RegistryUtilities::keepAppsStatus()
 		if (RegQueryValueEx(hkey, L"KeepApps", NULL, NULL, reinterpret_cast<LPBYTE>(&value[0]), &cbData) != ERROR_SUCCESS)
 		{
 			RegCloseKey(hkey);
-			throw "Could not read registry value";
 		}
 
 		RegCloseKey(hkey);

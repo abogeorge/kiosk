@@ -8,7 +8,7 @@ public:
 private:
 	PROCESS_INFORMATION startProcess(STARTUPINFO startUpInfo, LPCTSTR lpApplicationName);
 	bool killProcess(PROCESS_INFORMATION processInfo);
-	LPCWSTR checkAdditionalProcess();
+	char* checkAdditionalProcess();
 	void sweepProcesses(HDESK desktopHandle);
 	DWORD listProcessThreads(DWORD dwOwnerPID);
 	BOOL terminateProcessHandle(DWORD dwProcessId);
